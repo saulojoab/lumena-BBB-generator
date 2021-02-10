@@ -31,7 +31,9 @@ const useStyles = makeStyles({
     },
     subTitle: {
         fontSize: 18,
-        fontWeight: '100'
+        fontWeight: '100',
+        backgroundColor: 'rgba(0,0,0,0.4)',
+        padding: 20
     },
     input: {
         backgroundColor: 'white',
@@ -185,7 +187,7 @@ export default function Main () {
                     <div className={classes.cancelamento}>
                         <span className={classes.title} style={{ fontSize: 40 }}><span style={{ fontWeight: '100' }}>{nome ? `${nome}, a` : "A"} Lumena te cancelou por</span> {cancelamento}</span>
 
-                        <FaTwitter className={classes.tweet} onClick={() => window.open(`https://twitter.com/intent/tweet?text=A%20Lumena%20me%20cancelou%20por%20${cancelamento.replace(" ", "%20")}`)} /><br/>
+                        <FaTwitter className={classes.tweet} onClick={() => window.open(`https://twitter.com/intent/tweet?url=https%3A%2F%2Fbit.ly%2F2Op35g3&text=A%20Lumena%20me%20cancelou%20por%20${cancelamento.replace(" ", "%20")}%20Confere%20o%20seu!&hashtags=BBB%2CBBB21`)} /><br/>
                         <span className={classes.subTitle}>Me segue no Twitter! <span className={classes.twitter}>@laudtriste</span> :)</span>
                     </div>
                 ) : ''}
