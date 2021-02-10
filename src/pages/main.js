@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { makeStyles } from '@material-ui/core';
 
-import { FaTwitter } from 'react-icons/fa'
+import { FaTwitter, FaGithub } from 'react-icons/fa'
 
 import LumenaBG from './../assets/img/lumena.png';
 
@@ -77,6 +77,14 @@ const useStyles = makeStyles({
         "&:hover": {
             margin: 10,
             color: '#00aced'
+        }
+    },
+    github: {
+        fontSize: 50,
+        cursor: 'pointer',
+        transition: 'all 1s',
+        "&:hover": {
+            marginBottom: -10
         }
     },
     twitter: {
@@ -177,7 +185,9 @@ export default function Main () {
                         <span className={classes.title}>OH CÉUS!! <br/> <span style={{ fontWeight: '100' }}>A LUMENA TE CANCELOU!!</span></span>
                         <span className={classes.subTitle}>Insira seu nome abaixo para ver por quê você foi cancelado pela Lumena:</span><br/>
                         <input placeholder="Seu Nome" className={classes.input} onChange={(e) => setNome(e.target.value)} /><br/>
-                        <button className={classes.button} onClick={generateCancelamento}>Gerar Cancelamento</button><br/><br/><br/><br/>
+                        <button className={classes.button} onClick={generateCancelamento}>Gerar Cancelamento</button><br/>
+                        <FaGithub className={classes.github} onClick={() => window.open(`https://github.com/saulojoab/lumena-BBB-generator`)} /><br/>
+                        <br/><br/><br/>
                         <span className={classes.subTitle}>Me segue no Twitter! <span className={classes.twitter}>@laudtriste</span> :)</span>
                     </>
                 )}
