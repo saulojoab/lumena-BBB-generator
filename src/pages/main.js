@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 
 import { makeStyles } from '@material-ui/core';
 
+import { FaTwitter } from 'react-icons/fa'
+
+import LumenaBG from './../assets/img/lumena.png';
+
 const useStyles = makeStyles({
     container: {
         backgroundColor: 'black',
@@ -9,7 +13,74 @@ const useStyles = makeStyles({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        color: 'white'
+        color: 'white',
+        fontFamily: "Roboto",
+        backgroundImage: `url(${LumenaBG})`,
+    },
+    content: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    title: {
+        fontSize: 50,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginBottom: 20
+    },
+    subTitle: {
+        fontSize: 18,
+        fontWeight: '100'
+    },
+    input: {
+        backgroundColor: 'white',
+        height: 50,
+        width: 350,
+        borderRadius: 30,
+        fontFamily: 'Roboto',
+        fontWeight: 'bold',
+        fontSize: 25,
+        textAlign: 'center',
+        outline: 'none'
+    },
+    button: {
+        backgroundColor: 'white',
+        height: 50,
+        width: 200, 
+        fontFamily: 'Roboto',
+        fontWeight: 'bold',
+        borderRadius: 30,
+        transition: 'all 0.5s',
+        cursor: 'pointer',
+        "&:hover": {
+            backgroundColor: 'transparent',
+            border: '1px solid white',
+            color: 'white',
+            transition: 'all 0.5s'
+        }
+    },
+    cancelamento: {
+        width: "60%",
+        textAlign: 'center',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    tweet: {
+        fontSize: 50,
+        cursor: 'pointer',
+        transition: 'all 1s',
+        "&:hover": {
+            margin: 10,
+            color: '#00aced'
+        }
+    },
+    twitter: {
+        fontWeight: 'bold', 
+        color: '#00aced',
+        cursor: 'pointer'
     }
 })
 
@@ -28,37 +99,37 @@ export default function Main () {
     function generateCancelamento() {
         const frases = {
             "A": [
-                "Promoveu a deslegitimação",
-                "Ofendeu as vulnerabilidades",
-                "Se aproveitou do discurso",
-                "Se apropriou",
-                "Tirou o contexto",
-                "Se aproveitou",
-                "Corrompeu as descontruções",
-                "Ressignificou inverdades",
-                "Criticou maliciosamente os princípios",
-                "Reduziu o discurso",
-                "Potencializou o silenciamento",
-                "Desrespeitou a jornada",
-                "Usurpou o lugar de fala",
-                "Desmobilizou os discursos",
-                "Prestou desacolhimento",
-                "Alvejou a militância",
-                "Desestabilizou as oportunidades",
-                "Estereotipizou a biologia",
-                "Diminutizou as lamúrias",
-                "Enfraqueceu as conquistas",
-                "Transversalizou as palavras",
-                "Julgou o caráter",
-                "Quizsfazer palco em cima",
-                "Deslegitimou a relativização",
-                "Assumiu o lugar de fala da ancestralidade",
-                "Incentivou a erradicação",
-                "Desalinhou as pautas",
-                "Descentralizou as uniformidades do discurso",
-                "Abusou psicologicamente",
-                "Recusou internalizar as diversidades",
-                "Descontextualizou a argumentatividade"
+                "Promover a deslegitimação",
+                "Ofender as vulnerabilidades",
+                "Se aproveitar do discurso",
+                "Se aproprior",
+                "Tirar o contexto",
+                "Se aproveitar",
+                "Corromper as descontruções",
+                "Ressignificar inverdades",
+                "Criticar maliciosamente os princípios",
+                "Reduzir o discurso",
+                "Potencializar o silenciamento",
+                "Desrespeitar a jornada",
+                "Usurpar o lugar de fala",
+                "Desmobilizar os discursos",
+                "Prestar desacolhimento",
+                "Alvejar a militância",
+                "Desestabilizar as oportunidades",
+                "Estereotipizar a biologia",
+                "Diminutizar as lamúrias",
+                "Enfraquecer as conquistas",
+                "Transversalizar as palavras",
+                "Julgar o caráter",
+                "Fazer palco em cima",
+                "Deslegitimar a relativização",
+                "Assumir o lugar de fala da ancestralidade",
+                "Incentivar a erradicação",
+                "Desalinhar as pautas",
+                "Descentralizar as uniformidades do discurso",
+                "Abusar psicologicamente",
+                "Recusar internalizar as diversidades",
+                "Descontextualizar a argumentatividade"
             ],
             "B": [
                 "da comunidade LBTQIA+ no contexto civilizacional contemporâneo",
@@ -98,14 +169,24 @@ export default function Main () {
 
     return (
         <div className={classes.container}>
-            <div>
-                <span>Insira seu nome abaixo para ver por quê você foi cancelado pela Lumena:</span><br/>
-                <input onChange={(e) => setNome(e.target.value)} /><br/>
-                <button onClick={generateCancelamento}>Gerar Cancelamento</button><br/><br/>
+            <div className={classes.content}>
+                {cancelamento ? '' : (
+                    <>
+                        <span className={classes.title}>OH CÉUS!! <br/> <span style={{ fontWeight: '100' }}>A LUMENA TE CANCELOU!!</span></span>
+                        <span className={classes.subTitle}>Insira seu nome abaixo para ver por quê você foi cancelado pela Lumena:</span><br/>
+                        <input placeholder="Seu Nome" className={classes.input} onChange={(e) => setNome(e.target.value)} /><br/>
+                        <button className={classes.button} onClick={generateCancelamento}>Gerar Cancelamento</button><br/><br/><br/><br/>
+                        <span className={classes.subTitle}>Me segue no Twitter! <span className={classes.twitter}>@laudtriste</span> :)</span>
+                    </>
+                )}
+                
 
                 {cancelamento ? (
-                    <div>
-                        <span>{nome ? `${nome}, a` : "A"} Lumena te cancelou pois você {cancelamento}</span>
+                    <div className={classes.cancelamento}>
+                        <span className={classes.title} style={{ fontSize: 40 }}><span style={{ fontWeight: '100' }}>{nome ? `${nome}, a` : "A"} Lumena te cancelou por</span> {cancelamento}</span>
+
+                        <FaTwitter className={classes.tweet} onClick={() => window.open(`https://twitter.com/intent/tweet?text=A%20Lumena%20me%20cancelou%20por%20${cancelamento.replace(" ", "%20")}`)} /><br/>
+                        <span className={classes.subTitle}>Me segue no Twitter! <span className={classes.twitter}>@laudtriste</span> :)</span>
                     </div>
                 ) : ''}
             </div>
